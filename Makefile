@@ -33,11 +33,12 @@ SRCS_common = main.c
 
 run: $(EXEC)
 	for method in $(EXEC); do\
-		taskset -c 1 ./$$method 67100000 67116384; \
+		taskset -c 1 ./$$method 67100000 67100984; \
 	done
 
 plot: iteration.txt iteration.txt binary.txt byte.txt harley.txt
 	gnuplot scripts/runtime.gp
+	gnuplot scripts/luntime.gp
 
 .PHONY: clean
 clean:
